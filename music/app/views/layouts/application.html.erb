@@ -13,7 +13,15 @@
   <body>
   <% if logged_in? %>
     <h2>Welcome, <%= current_user.email %>
-    
+
+    <form action="<% session_url%>" method="POST">
+      <% form_authenticity_token %> 
+      <input type="hidden" name="_method" value="DELETE">
+      <button>Log Out</button>
+    </form>
+  <% else %>
+    <a href="<%= new_session_url %>" id="login_button">Login</a>
+    <a href="<%= new_user_url %>" id="signup_button">Sign up</a>
   <% end %>
     <h1>  i guess this is the application.html thing</h1>
     <%= yield %>

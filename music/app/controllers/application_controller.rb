@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
         #return a boolean indicating whether someone is signed in
         !!current_user
     end
+    def logout!
+        current_user.reset_session_token! if logged_in?
+        session[:session_token] = nil #delets the session token from cookies
+        @current_user = nil #sets current user to nothing.
+    end
 end
