@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Music</title>
+    <title>aaaaa also</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+  <% if logged_in? %>
+    <h2>Welcome, <%= current_user.email %>
+    
+  <% end %>
+    <h1>  i guess this is the application.html thing</h1>
     <%= yield %>
   </body>
 </html>
